@@ -17,7 +17,7 @@ remote:
 # docs in https://pypsa-eur.readthedocs.io/en/latest/configuration.html#run
 run:
   prefix: ""
-  name: ""
+  name: "EU"
   scenarios:
     enable: false
     file: config/scenarios.yaml
@@ -35,7 +35,7 @@ foresight: overnight
 # Wildcard docs in https://pypsa-eur.readthedocs.io/en/latest/wildcards.html
 scenario:
   clusters:
-  - 2500
+  - 75
   opts:
   - ''
   sector_opts:
@@ -45,45 +45,45 @@ scenario:
 
 # docs in https://pypsa-eur.readthedocs.io/en/latest/configuration.html#countries
 countries:
-- AL
+# - AL
 - AT
-- BA
+# - BA
 - BE
-- BG
+# - BG
 - CH
-- CZ
+# - CZ
 - DE
-- DK
-- EE
+# - DK
+# - EE
 - ES
-- FI
+# - FI
 - FR
 - GB
-- GR
-- HR
-- HU
-- IE
+# - GR
+# - HR
+# - HU
+# - IE
 - IT
-- LT
-- LU
-- LV
-- ME
-- MK
-- NL
-- 'NO'
-- PL
+# - LT
+# - LU
+# - LV
+# - ME
+# - MK
+# - NL
+# - 'NO'
+# - PL
 - PT
-- RO
-- RS
-- SE
-- SI
-- SK
-- XK
+# - RO
+# - RS
+# - SE
+# - SI
+# - SK
+# - XK
 
 # docs in https://pypsa-eur.readthedocs.io/en/latest/configuration.html#snapshots
 snapshots:
   start: "2013-06-01"
-  end: "2014-09-01"
+  end: "2013-09-01"
   inclusive: 'left'
 
 # docs in https://pypsa-eur.readthedocs.io/en/latest/configuration.html#enable

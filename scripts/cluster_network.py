@@ -661,7 +661,9 @@ if __name__ == "__main__":
             logger.info(f"Imported custom busmap from {snakemake.input.custom_busmap}")
             busmap = custom_busmap
         else:
-            n_clusters = int(snakemake.wildcards.clusters)
+            # n_clusters = int(snakemake.wildcards.clusters)
+            n_clusters_ratio = int(snakemake.wildcards.clusters)
+            n_clusters = int(n_clusters_ratio / 100 * n.buses.shape[0])
             algorithm = params.cluster_network["algorithm"]
             features = None
             if algorithm == "hac":
