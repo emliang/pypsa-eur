@@ -423,6 +423,30 @@ rule build_hydro_profile:
         "../scripts/build_hydro_profile.py"
 
 
+# rule build_hydro_profile_custom:
+#     params:
+#         hydro=config_provider("renewable", "hydro"),
+#         countries=config_provider("countries"),
+#         snapshots=config_provider("snapshots"),
+#         drop_leap_day=config_provider("enable", "drop_leap_day"),
+#     input:
+#         country_shapes=resources("country_shapes.geojson"),
+#         custom_era5_inflow="data/custom_era5_inflow.nc",  # Your ERA5 inflow file
+#         eia_hydro_generation="data/eia_hydro_annual_generation.csv",  # Optional for normalization
+#     output:
+#         profile=resources("profile_hydro_custom.nc"),
+#     log:
+#         logs("build_hydro_profile_custom.log"),
+#     benchmark:
+#         benchmarks("build_hydro_profile_custom")
+#     resources:
+#         mem_mb=8000,  # More memory for grid processing
+#     conda:
+#         "../envs/environment.yaml"
+#     script:
+#         "../scripts/build_hydro_profile_custom.py"
+
+
 rule build_line_rating:
     params:
         snapshots=config_provider("snapshots"),

@@ -46,6 +46,30 @@ rule build_clustered_population_layouts:
         "../scripts/build_clustered_population_layouts.py"
 
 
+rule build_clustered_load_ratio_layouts:
+    input:
+        pop_layout_total=resources("pop_layout_total.nc"),
+        pop_layout_urban=resources("pop_layout_urban.nc"),
+        pop_layout_rural=resources("pop_layout_rural.nc"),
+        regions_onshore=resources("regions_onshore_base_s_{clusters}.geojson"),
+        nuts3_shapes=resources("nuts3_shapes.geojson"),
+        cutout=lambda w: input_cutout(w),
+    output:
+        clustered_load_ratio_layout=resources("load_ratio_base_s_{clusters}.csv"),
+    params:
+        distribution_key=config["load"]["distribution_key"],
+    log:
+        logs("build_clustered_load_ratio_layouts_s_{clusters}.log"),
+    resources:
+        mem_mb=10000,
+    benchmark:
+        benchmarks("build_clustered_load_ratio_layouts/s_{clusters}")
+    conda:
+        "../envs/environment.yaml"
+    script:
+        "../scripts/build_clustered_load_ratio_layouts.py"
+
+
 rule build_clustered_solar_rooftop_potentials:
     input:
         pop_layout=resources("pop_layout_total.nc"),
